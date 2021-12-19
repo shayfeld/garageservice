@@ -9,13 +9,14 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/homePage.html'));
 })
 
-app.get('/log-in', function (req, res) {
+app.get('/logIn', function (req, res) {
     res.sendFile(path.join(__dirname + '/login.html'));
 })
 
-app.get('/sign-up', function (req, res) {
-    res.sendFile(path.join(__dirname + '/sign-up.html'));
+app.get('/register', function (req, res) {
+    res.sendFile(path.join(__dirname + '/register.html'));
 })
+
 
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
