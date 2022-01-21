@@ -19,8 +19,11 @@ mongoose.connect(db, { useNewUrlParser: true})
 .catch(err=>console.log(err));
 
 // EJS
-app.use(expressLayout);
+//app.use(expressLayout);
 app.set('view engine', 'ejs');
+
+//Use public directory as /static in server
+app.use('/static', express.static('./'));
 
 // Bodyparser
 app.use(express.urlencoded({extended: true}));
