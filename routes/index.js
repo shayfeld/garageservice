@@ -7,7 +7,7 @@ const User = require('../models/User');
 
 // Welcome page
 router.get('/',(req, res)=>{
-    res.render('welcome')
+    res.render('login')
 });
 
 // Dashbord page
@@ -29,5 +29,7 @@ router.get('/aboutUs', ensureAuthenticated, (req, res)=>{
 router.get('/newTreatment', ensureAuthenticated, (req, res)=>{
     res.render('newTreatment')
 });
+
+
 
 module.exports = router;

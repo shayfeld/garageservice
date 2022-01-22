@@ -21,10 +21,7 @@ const TreatmentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    action:{
-        type: String,
-        required: true
-    }
+
 });
 
 const Treatment = mongoose.model('Treatment', TreatmentSchema);
