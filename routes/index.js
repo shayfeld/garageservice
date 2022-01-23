@@ -12,9 +12,9 @@ router.get('/',(req, res)=>{
 
 // Dashbord page
 router.get('/dashboard', ensureAuthenticated, (req, res)=>{
-    User.find({}, (err, users) =>{
+    Treatment.find({}, (err, treatments) =>{
         res.render('tables',{
-            userList: users
+            treatmentList: treatments
         })
     })
     
@@ -25,11 +25,10 @@ router.get('/aboutUs', ensureAuthenticated, (req, res)=>{
     res.render('aboutUs')
 });
 
-// New Treatment page
-router.get('/newTreatment', ensureAuthenticated, (req, res)=>{
-    res.render('newTreatment')
+// Page Not Found
+
+router.get('/PageNotFound', (req, res)=>{
+    res.render('404');
 });
-
-
 
 module.exports = router;
