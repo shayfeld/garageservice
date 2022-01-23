@@ -19,14 +19,14 @@ mongoose.connect(db, { useNewUrlParser: true})
 .catch(err=>console.log(err));
 
 // EJS
-//app.use(expressLayout);
 app.set('view engine', 'ejs');
 
 //Use public directory as /static in server
 app.use('/static', express.static('./'));
 
 // Bodyparser
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 // Express Session
 app.use(session({
@@ -54,7 +54,12 @@ app.use((req, res, next)=>{
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/treatments', require('./routes/treatments'));
 
+// Page Not Found
+app.get('*', function(req, res){
+    res.status(404).redirect('/PageNotFound');
+});
 
 const PORT = process.env.PORT || 3000;
 

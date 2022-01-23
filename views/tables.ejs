@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Garage Service</title>
 
     <!-- Custom fonts for this template -->
     <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -386,33 +386,28 @@
                                       </div>
                                       <div class="modal-body mx-3">
                                         <div class="md-form mb-5">
-                                          <input type="text" id="inputName" class="form-control validate">
-                                          <label data-error="wrong" data-success="right" for="inputName">Name</label>
+                                          <input type="text" id="treatmentNumber" class="form-control validate">
+                                          <label data-error="wrong" data-success="right" for="treatmentNumber">treatment Number</label>
                                         </div>
                             
                                         <div class="md-form mb-5">
-                                          <input type="text" id="inputPosition" class="form-control validate">
-                                          <label data-error="wrong" data-success="right" for="inputPosition">Position</label>
+                                          <input type="text" id="treatmentInformation" class="form-control validate">
+                                          <label data-error="wrong" data-success="right" for="treatmentInformation">treatment Information</label>
                                         </div>
                             
                                         <div class="md-form mb-5">
-                                          <input type="text" id="inputOfficeInput" class="form-control validate">
-                                          <label data-error="wrong" data-success="right" for="inputOfficeInput">Office</label>
+                                          <input type="text" id="workerEmail" class="form-control validate">
+                                          <label data-error="wrong" data-success="right" for="workerEmail">worker Email</label>
                                         </div>
                             
                                         <div class="md-form mb-5">
-                                          <input type="text" id="inputAge" class="form-control validate">
-                                          <label data-error="wrong" data-success="right" for="inputAge">Age</label>
+                                          <input type="text" id="carNumber" class="form-control validate">
+                                          <label data-error="wrong" data-success="right" for="carNumber">car Number</label>
                                         </div>
                             
                                         <div class="md-form mb-5">
                                           <input type="date" id="inputDate" class="form-control" placeholder="Select Date">
                                           <label data-error="wrong" data-success="right" for="inputDate"></label>
-                                        </div>
-                            
-                                        <div class="md-form mb-5">
-                                          <input type="text" id="inputSalary" class="form-control validate">
-                                          <label data-error="wrong" data-success="right" for="inputSalary">Salary</label>
                                         </div>
                             
                                       </div>
@@ -426,11 +421,14 @@
                                 </div>
                             
                                 <div class="text-center">
-                                  <a href="" class="btn btn-info btn-rounded btn-sm" data-toggle="modal" data-target="#modalAdd">Add<i
-                                      class="fas fa-plus-square ml-1"></i></a>
+                                  
                                 </div>
                         </div>
                         <div class="card-body">
+                            <a href="/treatments/addTreatment" class="btn btn-info btn-rounded btn-sm">
+                                <i class="fas fa-plus-square"></i> Add new treatment
+                            </a>
+                                <br></br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -441,93 +439,38 @@
                                             <th>Worker email</th>
                                             <th>Car Number</th>
                                             <th>Action</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%userList.forEach((treatment, index) => {%>
+                                        <%treatmentList.forEach((treatment, index) => {%>
                                             <tr>
-                                                <td><%= (index + 1) %></td>
-                                                <td><%= treatment.email %></td>
-                                                <td><%= treatment.password %></td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
                                                 <td>
-                                                    <div class="modal fade modalEditClass" id="modalEdit15" tabindex="${index}" role="dialog" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                      <div class="modal-content">
-                                                        <div class="modal-header text-center">
-                                                          <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit form</h4>
-                                                          <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                          </button>
-                                                        </div>
-                                                        <div class="modal-body mx-3 modal-inputs">
-                                                          <div class="md-form mb-5">
-                                                            <input type="text" id="formNameEdit15" class="form-control validate">
-                                                            <label data-error="wrong" data-success="right" for="formNameEdit15">Name</label>
-                                                          </div>
-                                                          <div class="md-form mb-5">
-                                                            <input type="text" id="formPositionEdit15" class="form-control validate">
-                                                            <label data-error="wrong" data-success="right" for="formPositionEdit15">Position</label>
-                                                          </div>
-                                                          <div class="md-form mb-5">
-                                                            <input type="text" id="formOfficeEdit15" class="form-control validate">
-                                                            <label data-error="wrong" data-success="right" for="formOfficeEdit15">Office</label>
-                                                          </div>
-                                                          <div class="md-form mb-5">
-                                                            <input type="text" id="formAgeEdit15" class="form-control validate">
-                                                            <label data-error="wrong" data-success="right" for="formAgeEdit15">Age</label>
-                                                          </div>
-                                                          <div class="md-form mb-5">
-                                                            <input type="text" id="formDateEdit" class="form-control datepicker">
-                                                            <label data-error="wrong" data-success="right" for="formDateEdit15">Date</label>
-                                                          </div>
-                                                        </div>
-                                                        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
-                                                          <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Edit
-                                                            form
-                                                            <i class="far fa-paper-plane ml-1"></i>
-                                                          </button>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="text-center buttonEditWrapper">
-                                                    <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit15"
-                                                      >Edit<i class="fas fa-pen-square ml-1"></i></a>
-                                                  </div>
-                                                  <br>
-                                                  <div class="modal fade" id="modalDelete15" tabindex="-1" role="dialog" aria-labelledby="modalDelete15"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                      <div class="modal-content">
-                                                        <div class="modal-header text-center">
-                                                          <h4 class="modal-title w-100 font-weight-bold ml-5 text-danger">Delete</h4>
-                                                          <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                          </button>
-                                                        </div>
-                                                        <div class="modal-body mx-3">
-                                                          <p class="text-center h4">Are you sure to delete selected row?</p>
-                                                        </div>
-                                                        <div class="modal-footer d-flex justify-content-center deleteButtonsWrapper">
-                                                          <button type="button" class="btn btn-outline-danger btnYesClass" id="btnYes15" data-dismiss="modal">Yes
-                                                            <i class="far fa-paper-plane ml-1"></i>
-                                                          </button>
-                                                          <button type="button" class="btn btn-outline-primary btnNoClass" id="btnNo15" data-dismiss="modal">No
-                                                            <i class="far fa-paper-plane ml-1"></i>
-                                                          </button>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="text-center">
-                                                    <button class="btn btn-danger btn-sm btn-rounded buttonDelete" data-toggle="modal"  data-target="#modalDelete15"
-                                                      >Delete<i class="fas fa-times ml-1"></i></a>
-                                                  </div>
-                                                </div></td>
+                                                    <%= treatment.treatmentNumber %>
+                                                </td>
+                                                <td>
+                                                    <%= treatment.treatmentInformation %>
+                                                </td>
+                                                <td>
+                                                    <%= treatment.date %>
+                                                </td>
+                                                <td>
+                                                    <%= treatment.workerEmail %>
+                                                </td>
+                                                <td>
+                                                    <%= treatment.carNumber %>
+                                                </td>
+                                                <td>
+                                                    <a href="/treatments/editTreatment/<%= treatment._id%>" class="btn btn-success update">
+                                                        <span class="text-gradient">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a href="/treatments/deleteTreatment/<%= treatment._id%>" class="btn btn-danger delete">
+                                                        <span class="text-gradient">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </span>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         <%})%>
                                         
