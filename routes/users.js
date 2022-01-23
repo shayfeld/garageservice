@@ -176,7 +176,7 @@ router.post('/register',(req, res)=>{
 // Send verification email
 const sendVerificationEmail = ({_id, email}, res) =>{
     // url to be used in the mail
-    const currentUrl='http://localhost:3000/';
+    const currentUrl='https://garageservice.herokuapp.com/';
 
     const uniqueString = uuidv4() + _id;
 
@@ -407,7 +407,7 @@ router.post('/forgotpass',(req, res)=>{
 // Send verification email
 const sendChangePasswordEmail = ({_id, email}, res) =>{
     // url to be used in the mail
-    const currentUrl='http://localhost:3000/';
+    const currentUrl='https://garageservice.herokuapp.com/';
 
     const uniqueString = uuidv4() + _id;
 
