@@ -94,6 +94,7 @@ router.post('/register',(req, res)=>{
 
     if(errors.length > 0){
         res.render('register',{
+            errors,
             firstName,
             lastName,
             email,
@@ -124,6 +125,7 @@ router.post('/register',(req, res)=>{
                         if(!user.verified){ // did'nt verify
                             errors.push({msg: 'This email did not verification'});
                             res.render('register',{
+                                errors,
                                 firstName,
                                 lastName,
                                 email,
@@ -133,6 +135,7 @@ router.post('/register',(req, res)=>{
                         }else{ // verified
                             errors.push({msg: 'Email is already registered'});
                             res.render('register',{
+                                errors,
                                 firstName,
                                 lastName,
                                 email,
@@ -176,7 +179,7 @@ router.post('/register',(req, res)=>{
 // Send verification email
 const sendVerificationEmail = ({_id, email}, res) =>{
     // url to be used in the mail
-    const currentUrl='https://garageservice.herokuapp.com/';
+    const currentUrl='http://localhost:3000/';
 
     const uniqueString = uuidv4() + _id;
 
@@ -330,12 +333,27 @@ router.get('/verified',(req,res)=>{
 // Login Handle
 router.post('/login',async(req, res, next)=>{
     const captcha = req.body['g-recaptcha-response'];
+    const {email, password} = req.body;
+    
+    let errors = [];
 
+    
+    //Check required fields
+    if(!email || !password){
+        errors.push({msg:'Please fill in all fields'});
+    }
     // captcha not used
     if(!captcha){
-        console.log('captcha not used');
-        res.redirect('/users/login');
-    } else {
+        errors.push({msg:'Please select I am not a robot'});
+       
+    } 
+    if(errors.length > 0){
+        res.render('login',{
+                    errors,
+                    email,
+                    password,
+                });
+    }else {
 
         // Secret Key
         const secretKey = '6LcGqzEeAAAAAPbp7LRjwknzZidsfQ-p9zvbjPhX';
@@ -382,6 +400,7 @@ router.post('/forgotpass',(req, res)=>{
 
     if(errors.length > 0){
         res.render('forgotpass',{
+            errors,
             email
         });
     }else{
@@ -407,7 +426,7 @@ router.post('/forgotpass',(req, res)=>{
 // Send verification email
 const sendChangePasswordEmail = ({_id, email}, res) =>{
     // url to be used in the mail
-    const currentUrl='https://garageservice.herokuapp.com/';
+    const currentUrl='http://localhost:3000/';
 
     const uniqueString = uuidv4() + _id;
 
@@ -555,11 +574,14 @@ router.post('/changepass/:id',(req, res)=>{
     if(password.length < 6){
         errors.push({msg:'Passwords Should be at least 6 characters'});
     }
-
+    
     if(errors.length > 0){
-        res.render('changepass');
+        res.render('changepass',{
+                    errors,
+                    email,
+                    password,
+                });
     }
-
     else{
         // Hash Password
         bcrypt.genSalt(10, (err, salt)=> 

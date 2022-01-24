@@ -40,6 +40,13 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <% if(locals.errors){ %> 
+                                            <% errors.forEach(function(error) { %>
+                                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <%= error.msg %>
+                                              </div>
+                                            <% }); %> 
+                                          <% } %> 
                                     </div>
                                     <form class="user" id="loginForm" action="/users/login" method="post">
                                         <div class="form-group">
@@ -49,6 +56,7 @@
                                                     name="email"
                                                     class="form-control form-control-user"
                                                     placeholder="Enter Email Address..."
+                                                    onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 64) || (event.charCode == 46)"
                                                     value="<%= typeof email != 'undefined' ? email : '' %>"
                                                 />
                                         </div>
@@ -59,6 +67,7 @@
                                                     name="password"
                                                     class="form-control form-control-user"
                                                     placeholder="Password"
+                                                    onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 33 || event.charCode == 64 || (event.charCode >= 35 && event.charCode <= 38) || event.charCode == 94 || event.charCode == 42 || event.charCode == 40 || event.charCode == 41 )" maxlength="16"
                                                     value="<%= typeof password != 'undefined' ? password : '' %>"
                                                 />
                                         </div>

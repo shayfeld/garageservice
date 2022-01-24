@@ -40,6 +40,13 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">Reset your password</h1>
                                         <p class="mb-4">Enter new password to recovery you account</p>
+                                        <% if(locals.errors){ %> 
+                                            <% errors.forEach(function(error) { %>
+                                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <%= error.msg %>
+                                              </div>
+                                            <% }); %> 
+                                          <% } %> 
                                     </div>
                                     <form class="user" action="/users/changepass/<%= id %>" method="post">
                                         <div class="form-group">
