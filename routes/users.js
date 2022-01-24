@@ -414,8 +414,27 @@ router.post('/forgotpass',(req, res)=>{
                     email: email
                 });
             }else{
-                // Send mail for reset password
-                sendChangePasswordEmail(user, res);
+                UserVerification.findOne({userId: user._id})
+                .then((verification)=>{
+                    if(verification){
+                        UserVerification.findByIdAndRemove(verification._id)
+                        .then(()=>{
+                            // Send mail for reset password
+                            sendChangePasswordEmail(user, res);
+                        })
+                        .catch((err)=>{
+                            console.log(err);
+                        });
+                    }else{
+                        // Send mail for reset password
+                        sendChangePasswordEmail(user, res);
+                    }
+                    
+                })
+                .catch((err)=>{
+                    console.log(err);
+                });
+                
             }
         });
 
@@ -527,7 +546,7 @@ router.get('/resetPassword/:userId/:uniqueString',(req,res)=>{
                 .compare(uniqueString, hashedUniqueString)
                 .then((result)=>{
                     if(result){
-                        res.redirect('/users/changepass/' + userId);
+                        res.redirect(`/users/changepass/${userId}`);
                     }else{
                        // Existing record but incorrect verification details passed 
                         const message ='Invalid verification details passed. Check your inbox.';
