@@ -27,7 +27,7 @@ https://garageservice.herokuapp.com/
 
 Log-in
 
-![App Screenshot](https://i.ibb.co/3SW3J33/Log-in.jpg)
+![App Screenshot](https://drive.google.com/file/d/1MsZ1goKJBAvyzCUtHLh7s_NN7jyF1vJL/view?usp=sharing)
 
 Sign-in
 
