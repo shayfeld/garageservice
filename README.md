@@ -2,6 +2,16 @@
 # Garage service
 
 A client server project for mannaging registration and documentation of vehicles that visited the garage 
+
+
+## Features
+
+- Input validation
+- reCAPTCHA
+- Mail verification
+
+
+
 ## Acknowledgements
 
  - [Front-end templates](https://startbootstrap.com/theme/sb-admin-2)
