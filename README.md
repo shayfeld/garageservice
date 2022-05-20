@@ -17,9 +17,6 @@ A client server project for mannaging registration and documentation of vehicles
  - [Front-end templates](https://startbootstrap.com/theme/sb-admin-2)
  - [Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
 
-## Demo
-
-https://garageservice.herokuapp.com/
 
 ## Authors
 
