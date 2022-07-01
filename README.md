@@ -15,7 +15,7 @@ A client server project for mannaging registration and documentation of vehicles
 ## Acknowledgements
 
  - [Front-end templates](https://startbootstrap.com/theme/sb-admin-2)
- - [Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Readme Templates](https://readme.so/)
 
 
 ## Authors
